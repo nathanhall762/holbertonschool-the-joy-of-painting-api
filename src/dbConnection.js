@@ -4,7 +4,9 @@ function createDBConnection() {
   var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    database : 'BobRossDatabase'
+    password : 'new_password',
+    database : 'BobRossDatabase',
+    multipleStatements: true
   });
 
   connection.connect((error) => {

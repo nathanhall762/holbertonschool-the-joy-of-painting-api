@@ -1,7 +1,7 @@
-const createDBConnection = require('./dbConnection');
+const mysql = require('mysql');
 
 function checkDatabaseExists() {
-  const db = createDBConnection();
+  const db = createDBConnectionWithoutDB();
 
   return new Promise((resolve, reject) => {
     // Query to check if database exists
@@ -17,4 +17,23 @@ function checkDatabaseExists() {
   });
 }
 
-module.exports = checkDatabaseExists;
+function createDBConnectionWithoutDB() {
+  const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'new_password',
+    multipleStatements: true
+  });
+
+  connection.connect((error) => {
+    if (error) {
+      console.error('Error connecting to database: ' + error.stack);
+      return;
+    }
+    console.log('Connected to database as id ' + connection.threadId);
+  });
+
+  return connection;
+}
+
+module.exports = { checkDatabaseExists, createDBConnectionWithoutDB };

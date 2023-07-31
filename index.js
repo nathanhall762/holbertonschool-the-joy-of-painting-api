@@ -1,5 +1,8 @@
-const checkDatabaseExists = require('./src/checkDatabase');
+const { checkDatabaseExists, createDBConnectionWithoutDB } = require('./src/checkDatabase');
+const fs = require('fs');
+const path = require('path');
 // const populateDatabase = require('./src/populateDatabase');
+const createDBConnection = require('./src/dbConnection');
 
 checkDatabaseExists().then(exists => {
     if(!exists) {
@@ -7,7 +10,7 @@ checkDatabaseExists().then(exists => {
       const createDatabaseSQL = fs.readFileSync(path.join(__dirname, './sql/createDatabase.sql'), 'utf-8');
   
       // Create a connection
-      const db = createDBConnection();
+      const db = createDBConnectionWithoutDB();
   
       // Create the database
       db.query(createDatabaseSQL, (error, results, fields) => {
