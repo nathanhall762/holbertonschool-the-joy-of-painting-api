@@ -1,7 +1,7 @@
 const { checkDatabaseExists, createDBConnectionWithoutDB } = require('./src/checkDatabase');
 const fs = require('fs');
 const path = require('path');
-// const populateDatabase = require('./src/populateDatabase');
+const loadDataIntoDatabase = require('./src/loadDataIntoDatabase');
 const createDBConnection = require('./src/dbConnection');
 
 checkDatabaseExists().then(exists => {
@@ -21,9 +21,7 @@ checkDatabaseExists().then(exists => {
         }
   
         console.log('Database and tables created successfully.');
-  
-        // TODO: populateDatabase();
-  
+    
         db.end(); // Close the connection when done
       });
   } else {
@@ -33,3 +31,4 @@ checkDatabaseExists().then(exists => {
   console.log('An error occurred: ', err);
 });
 
+loadDataIntoDatabase();
