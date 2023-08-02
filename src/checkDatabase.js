@@ -21,7 +21,7 @@ function createDBConnectionWithoutDB() {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'new_password',
+    password: 'your_new_password',
     multipleStatements: true
   });
 

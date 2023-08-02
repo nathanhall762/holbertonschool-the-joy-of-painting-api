@@ -4,7 +4,7 @@ function createDBConnection() {
   var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'new_password',
+    password : 'your_new_password',
     database : 'BobRossDatabase',
     multipleStatements: true
   });
