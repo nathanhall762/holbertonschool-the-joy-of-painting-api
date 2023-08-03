@@ -6,8 +6,16 @@ This project is a RESTful API built with Node.js and MySQL that allows users to 
 
 ## Requirements
 
-- Node.js
-- MySQL
+Your local public broadcasting station has an overwhelming amount of requests for information on The Joy of Painting. Their viewers want a website that allows them to filter the 403 episodes based on the following criteria:
+
+- Month of original broadcast
+    This will be useful for viewers who wish to watch paintings that were done during that same month of the year
+- Subject Matter
+    This will be useful for viewers who wish to watch specific items get painted
+- Color Palette
+    This will be useful for viewers who wish to watch specific colors being used in a painting
+
+Your local broadcasting station has already done some leg work to gather data, however it is spread out across multiple different files and formats, which makes the data unusable in its current form. They’ve also already hired another team to build a front-end to allow their viewers to filter episodes of The Joy of Painting and now they’ve hired you to help them with the process of designing and building a database that will house this collected data in a way that is usable and also build an API to access it.
 
 ## Setup
 
@@ -47,7 +55,7 @@ The parameters for this endpoint are as follows:
 
 ## Testing
 
-To test the API, you can use curl or any API testing tool such as Postman. Here's an example using curl:
+To test the API, you can use curl or any API testing tool such as Postman. Here's an example using curl in another terminal:
 
 ```
 curl "http://localhost:3000/api/episodes/search?month=January&subject=Tree&color
